@@ -9,7 +9,7 @@ to learn about (and play) chords in different keys.
 
 Sounds for the notes were recorded using musecores
 
-To install follow these instructions:
+These were my original installation instructions. Sorry it's a little clunky:
 
 INSTALL INSTRUCTIONS
 easy enough, just paste the ChordFinder Folder into your Program Files. The URI should read:
