@@ -6,6 +6,7 @@
 /**
  *
  * @author Mike
+ *Tested to make sure major chords have the right data
  */
 public class TestMethods {
     public static void main(String[]args)
