@@ -1,9 +1,17 @@
+/*
+* Class that generates and stores info on a major scale in any given key
+*chords are built off of these scales
+*/
 public class MajorScale 
 {
+    //C-scale which has no sharps or flats. all scales start here and accidentals are added by other methods
     private String[] scale = { "C", "D","E","F","G","A","B" };
+    //circle of fifths
     public static final String ORDEROFFLATS="BEADGCF";
     public static final String ORDEROFSHARPS="FCGDAEB"; 
+    //blank constructor
     public MajorScale(){}
+    //constructor
     public MajorScale(String startingNote)
     {
        if(startingNote.substring(0,1).compareTo("G") > 1)
@@ -14,6 +22,11 @@ public class MajorScale
         changeRoot(startingNote);
         addAccidentals(startingNote);
     }
+    /*
+    *Changes root to a new root, i.e. changes the key
+    *Example if you have a C major and want to change to F major, changeRoot("F")
+    *it adds the accidental Bb to the scale
+    */
     public void changeRoot(String note)
     {
         if (SharpsAndFlats.getNumAccidentals(note)==-1)
@@ -40,6 +53,9 @@ public class MajorScale
             newScale[i+ (7-index)] = scale [i];
         scale = newScale;
     }
+    /*
+    *simply returns all notes in a scale in an array of Strings
+    */
     public String getNotes()
     {
          String notes = "";
@@ -47,8 +63,12 @@ public class MajorScale
              notes += s;
          return notes;
     }
+    /*
+    *Adds accidentals based on circle of fifths
+    */
     public void addAccidentals(String startingNote)
     {
+        //if there are no accidentals in a key, returns the C scale
         if (SharpsAndFlats.getNumAccidentals(startingNote)==-1)
         {
             MajorScale Cscale = new MajorScale("C");
@@ -79,6 +99,10 @@ public class MajorScale
                         scale[i] = scale[i] + "#";
         }
     }
+    /*
+    *Returns note at given scale degree 'interval'
+    *example getNote(1) for a C Major Scale returns the root, 'C'
+    */
     public String getNote(int interval)
     {
         return scale[interval-1];
